@@ -579,11 +579,11 @@ if "`provider'"!="IMF" {
 		local strsize=strlen("<`prefix'Time>")
 		gen time=substr(v1, strpos(v1, "<`prefix'Time>")+`strsize', strpos(v1, "</`prefix'Time>")-strpos(v1, "<`prefix'Time>")-`strsize')
 	}
-	if "`provider'"=="ECB" | "`provider'"=="ESTAT" | "`provider'"=="SPC"  {
+	if "`provider'"=="ECB" | "`provider'"=="ESTAT"{
 		local strsize=strlen("<`prefix'ObsDimension value=")+1
 		gen time=substr(substr(v1, strpos(v1, "<`prefix'ObsDimension value=")+`strsize', .), 1, strpos(substr(v1, strpos(v1, "<`prefix'ObsDimension value=")+`strsize', .), `"""')-1)
 	}
-	if "`provider'"=="UNSD"  {
+	if "`provider'"=="UNSD" | "`provider'"=="SPC"    {
 		local strsize=strlen("<`prefix'ObsDimension id=")+1
 		gen time=substr(substr(substr(v1, strpos(v1, "<`prefix'ObsDimension id=")+`strsize', .), 1, strpos(substr(v1, strpos(v1, "<`prefix'ObsDimension id=")+`strsize', .), `"/>"')-3), strpos(substr(substr(v1, strpos(v1, "<`prefix'ObsDimension id=")+`strsize', .), 1, strpos(substr(v1, strpos(v1, "<`prefix'ObsDimension id=")+`strsize', .), `"/>"')-3), "value=")+7, .)
 	}
