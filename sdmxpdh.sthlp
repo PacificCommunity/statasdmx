@@ -14,6 +14,7 @@
 
 {pstd}
 Available providers: {break}
+- Pacific Data Hub (SPC) {break}
 - European Central Bank (ECB) {break}
 - Eurostat (ESTAT) {break}
 - International Monetary Fund (IMF) {break}
@@ -58,7 +59,7 @@ Available providers: {break}
 {title:Description}
 
 {pstd}
-{cmd:sdmxpdh} imports data from statistical agencies using the SDMX standard. Available providers are the European Central Bank (ECB), Eurostat (ESTAT),
+{cmd:sdmxpdh} imports data from statistical agencies using the SDMX standard. Available providers are the Pacific Data Hub (SPC), European Central Bank (ECB), Eurostat (ESTAT),
 the International Monetary Fund (IMF), the Organisation for Economic Co-operation and Development (OECD), the United Nations Statistics Division (UNSD) and the World Bank (WB).
 
 {pstd}
@@ -110,22 +111,13 @@ A dimension can be left empty if all values are requested. Multiple values for a
 {title:Examples}
 
 {phang}
-{cmd:. sdmxpdh} dataflow OECD, clear {p_end}
+{cmd:. sdmxpdh} dataflow SPC, clear {p_end}
 
 {phang}
-{cmd:. sdmxpdh} datastructure OECD, clear dataset(EO) {p_end}
+{cmd:. sdmxpdh} datastructure SPC, clear dataset(DF_CPI) {p_end}
 
 {phang}
-{cmd:. sdmxpdh} data OECD, clear dataset(EO) dimensions(FRA+DEU.GDPV_ANNPCT.A) start(1993) {p_end}
-
-{phang}
-{cmd:. sdmxpdh} data OECD, clear dataset(EO) dimensions(FRA+DEU.GDPV_ANNPCT.A) start(1993) timeseries {p_end}
-
-{phang}
-{cmd:. sdmxpdh} data OECD, clear dataset(EO) dimensions(.GDPV_ANNPCT+CPIH.A) panel(location) {p_end}
-
-{phang}
-{cmd:. sdmxpdh} data OECD, clear dataset(EO) dimensions(.GDPV_ANNPCT.A) mergedsd
+{cmd:. sdmxpdh} data SPC, clear dataset(DF_CPI) dimensions(.FJ+GU._T.....GY) start(2005) end(2018) timeseries {p_end}
 
 {marker remarks}{...}
 {title:Remarks}
@@ -134,7 +126,7 @@ A dimension can be left empty if all values are requested. Multiple values for a
 The author is grateful to Robert Picard and Nicholas J. Cox for allowing him to reproduce their code of the package {cmd:moss} to deal with multiple occurrences of substrings. {p_end}
 
 {pstd}
-For queries larger than 30,000 cells, Eurostat will post the file to a different repository. 
+For queries larger than 30,000 cells, Eurostat will post the file to a different repository.
 {cmd:sdmxpdh} can accommodate this but processing time will be longer. {p_end}
 
 {marker author}{...}
