@@ -258,7 +258,8 @@ if "`resource'"=="datastructure" | "`mergedsd'"!="" {
 	// Build and send query
 
 	if "`provider'"=="ECB" | "`provider'"=="ESTAT" | "`provider'"=="UNSD" | "`provider'"=="SPC" {
-		copy "`url'datastructure/`provider'/`datasetDSD'/?references=children" tmp_sdmxdatastructure.txt, replace
+		//copy "`url'datastructure/`provider'/`datasetDSD'/?references=children" tmp_sdmxdatastructure.txt, replace
+		!curl "`url'datastructure/`provider'/`datasetDSD'/?references=children" -o tmp_sdmxdatastructure.txt
 	}
 	if "`provider'"=="IMF" {
 		copy "`url'DataStructure/`datasetDSD'" tmp_sdmxdatastructure.txt, replace
@@ -461,7 +462,8 @@ if "`resource'"=="data" {
 		local dimensions "/`dimensions'"
 	}
 	if "`provider'"=="ECB" | "`provider'"=="ESTAT" | "`provider'"=="UNSD" | "`provider'"=="SPC" {
-		copy "`url'data/`dataset'`dimensions'/all/?detail=`detail'`start'`end'" tmp_sdmxfile.txt, replace
+		//copy "`url'data/`dataset'`dimensions'/all/?detail=`detail'`start'`end'" tmp_sdmxfile.txt, replace
+		!curl "`url'data/`dataset'`dimensions'/all/?detail=`detail'`start'`end'" -o tmp_sdmxfile.txt
 	}
 	if "`provider'"=="IMF" {
 		copy "`url'CompactData/`dataset'`dimensions'/?&detail=`detail'`start'`end'" tmp_sdmxfile.txt, replace
