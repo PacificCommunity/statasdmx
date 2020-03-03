@@ -1,3 +1,5 @@
+Forked from my internship Github account, to my personal Github account
+
 # sdmxpdh
 SDMXPDH is a version of SDMXUSE Stata module, with the changes allowing users to connect to Pacific Data Hub .Stat API (PDH.STAT).
 
