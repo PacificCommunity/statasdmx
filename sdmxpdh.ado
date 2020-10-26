@@ -39,7 +39,7 @@ if "`provider'"=="ECB" {
 	}
 }
 if "`provider'"=="SPC" {
-	local url "https://stats.pacificdata.org/data-nsi/Rest/"
+	local url "https://stats-nsi-stable.pacificdata.org/Rest/"
 	local prefix="generic:"
 	local prefix_str="structure:"
 	local prefix_com="common:"
